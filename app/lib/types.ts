@@ -45,6 +45,8 @@ export type RockType =
   | "Copper Ore"
   | "Gold Ore"
   | "Manganese"
+  | "Zinc"
+  | "Lead"
   | "Granite"
   | "Basalt"
   | "Sandstone"
@@ -61,7 +63,7 @@ export interface MineSite {
   company: string;
   state: string;
   district: string;
-  mineralType: RockType[];
+  mineralType: string[];
   latitude: number;
   longitude: number;
 }

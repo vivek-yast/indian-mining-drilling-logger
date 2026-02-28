@@ -1,4 +1,4 @@
-import { MineSite, DrillingMethod, RockType } from './types';
+import { RockType, DrillingMethod } from './types';
 
 export const INDIAN_MINING_COMPANIES = [
   "Coal India Limited (CIL)",
@@ -19,7 +19,7 @@ export const INDIAN_MINING_COMPANIES = [
   "Indian Rare Earths Limited",
 ];
 
-export const INDIAN_MINE_SITES: MineSite[] = [
+export const INDIAN_MINE_SITES = [
   // Coal India Mines
   { id: "cil-1", name: "Jharia Coalfield", company: "Coal India Limited (CIL)", state: "Jharkhand", district: "Dhanbad", mineralType: ["Coal"], latitude: 23.75, longitude: 86.42 },
   { id: "cil-2", name: "Raniganj Coalfield", company: "Coal India Limited (CIL)", state: "West Bengal", district: "Paschim Bardhaman", mineralType: ["Coal"], latitude: 23.62, longitude: 87.08 },
@@ -97,6 +97,8 @@ export const ROCK_TYPES: RockType[] = [
   "Copper Ore",
   "Gold Ore",
   "Manganese",
+  "Zinc",
+  "Lead",
   "Granite",
   "Basalt",
   "Sandstone",
