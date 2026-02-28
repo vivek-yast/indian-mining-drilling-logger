@@ -2,6 +2,8 @@ import { DrillingLog, DrillingStats, FilterOptions } from './types';
 
 const STORAGE_KEY = 'mining_drilling_logs_v1';
 
+export type { DrillingLog, DrillingStats, FilterOptions } from './types';
+
 export function getAllLogs(): DrillingLog[] {
   if (typeof window === 'undefined') return [];
   const stored = localStorage.getItem(STORAGE_KEY);
