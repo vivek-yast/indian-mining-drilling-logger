@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { 
@@ -18,9 +18,7 @@ import {
 } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
-import { Select } from "../components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
 import { saveLog, getLogById, DrillingLog } from "../lib/data"
 import { 
   INDIAN_MINE_SITES, 
@@ -30,7 +28,7 @@ import {
   FORMATIONS 
 } from "../lib/constants"
 
-export default function DrillingLogPage() {
+function DrillingLogForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const editId = searchParams.get('edit')
@@ -541,5 +539,20 @@ export default function DrillingLogPage() {
         </form>
       </main>
     </div>
+  )
+}
+
+export default function LogPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-mining-950 via-mining-900 to-mining-950 flex items-center justify-center">
+        <Card className="bg-mining-900/50 border-mining-800 p-8 text-center">
+          <div className="animate-spin w-8 h-8 border-2 border-earth-500 border-t-transparent rounded-full mx-auto mb-4" />
+          <CardTitle className="text-white">Loading...</CardTitle>
+        </Card>
+      </div>
+    }>
+      <DrillingLogForm />
+    </Suspense>
   )
 }
